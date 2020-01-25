@@ -14,7 +14,7 @@ from badball import models
 
 class Command(BaseCommand):
 
-    def handle(self, *args, **kwargs):
+    def load_hitters(self):
         with open('data/2020/steamer_hit.csv', 'r') as readfile:
             for p in [dict(p) for p in csv.DictReader(readfile)]:
                 name = HumanName(p['Name'])
@@ -23,3 +23,17 @@ class Command(BaseCommand):
                     print("++ %s" % obj)
                 else:
                     print(obj)
+
+    def load_pitchers(self):
+        with open('data/2020/steamer_pitch.csv', 'r') as readfile:
+            for p in [dict(p) for p in csv.DictReader(readfile)]:
+                name = HumanName(p['Name'])
+                obj, created = models.Player.objects.get_or_create(name=p['Name'], first_name=name.first, last_name=name.last, fg_id=p['playerid'], position="P")
+                if created:
+                    print("++ %s" % obj)
+                else:
+                    print(obj)
+
+    def handle(self, *args, **kwargs):
+        # load_hitters()
+        self.load_pitchers()
