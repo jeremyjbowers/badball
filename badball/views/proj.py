@@ -108,7 +108,7 @@ def search(request):
             query = query.filter(is_amateur=to_bool(amateur))
             context['amateur'] = amateur
 
-    query = query.order_by("level", "last_name")
+    query = query.order_by("ps_war")
 
     if request.GET.get('csv', None):
         c = request.GET['csv']
@@ -122,7 +122,7 @@ def search(request):
                 writer.writerow(p)
             return response
 
-    query = query.order_by('position', '-level_order', 'last_name')
+    # query = query.order_by('position', '-level_order', 'last_name')
 
     context['hitters'] = query.exclude(position="P")
     context['pitchers'] = query.filter(position="P")
