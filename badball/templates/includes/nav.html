@@ -1,11 +1,9 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item logo" href="/">
-            The BadBall
+            BadBall
         </a>
-        <a class="navbar-item" href="https://badball.wordpress.com/constitution/" target="_blank">Constitution</a>
-        <a class="navbar-item" href="/trades/" target="_blank">Trades</a>
-        <div class="navbar-item has-dropdown is-hoverable">
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Drafts</a>
                 <div class="navbar-dropdown">
                     {% for draft in draftnav %}
@@ -13,8 +11,7 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
-        <a class="navbar-item" href="https://badball.wordpress.com/category/draft/" target="_blank">Archived drafts</a>
+        </div> -->
         <a class="navbar-item" href="/{% if value %}?value=true{% endif %}">Search</a>
         <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Teams</a>
