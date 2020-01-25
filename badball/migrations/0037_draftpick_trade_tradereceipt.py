@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0036_player_usage'),
+        ('badball', '0036_player_usage'),
     ]
 
     operations = [
@@ -25,8 +25,8 @@ class Migration(migrations.Migration):
                 ('team_name', models.CharField(blank=True, max_length=255, null=True)),
                 ('player_name', models.CharField(blank=True, max_length=255, null=True)),
                 ('pick_notes', models.TextField(blank=True, null=True)),
-                ('player', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Player')),
-                ('team', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Team')),
+                ('player', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Player')),
+                ('team', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Team')),
             ],
             options={
                 'ordering': ['year', '-season', '-pick_number'],
@@ -54,9 +54,9 @@ class Migration(migrations.Migration):
                 ('last_modified', models.DateTimeField(auto_now=True, null=True)),
                 ('players_received', django.contrib.postgres.fields.jsonb.JSONField(blank=True, null=True)),
                 ('picks_received', django.contrib.postgres.fields.jsonb.JSONField(blank=True, null=True)),
-                ('receiving_team', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='receiving_team', to='ulmg.Team')),
-                ('sending_team', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='sending_team', to='ulmg.Team')),
-                ('trade', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Trade')),
+                ('receiving_team', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='receiving_team', to='badball.Team')),
+                ('sending_team', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='sending_team', to='badball.Team')),
+                ('trade', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Trade')),
             ],
             options={
                 'abstract': False,

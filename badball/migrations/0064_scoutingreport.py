@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0063_auto_20181216_1349'),
+        ('badball', '0063_auto_20181216_1349'),
     ]
 
     operations = [
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('evaluator', models.CharField(blank=True, max_length=255, null=True)),
                 ('report_type', models.CharField(blank=True, max_length=255, null=True)),
                 ('level', models.CharField(blank=True, max_length=255, null=True)),
-                ('player', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Player')),
+                ('player', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Player')),
             ],
             options={
                 'abstract': False,

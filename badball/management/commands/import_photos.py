@@ -11,7 +11,7 @@ from django.db import connection
 from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 
-from ulmg import models
+from badball import models
 
 
 class Command(BaseCommand):

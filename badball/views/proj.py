@@ -10,7 +10,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import ujson as json
 
-from ulmg import models, utils
+from badball import models, utils
 
 def index(request):
     context = utils.build_context(request)

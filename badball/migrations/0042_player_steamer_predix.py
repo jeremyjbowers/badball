@@ -7,7 +7,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0041_player_is_relief_eligible'),
+        ('badball', '0041_player_is_relief_eligible'),
     ]
 
     operations = [

@@ -10,7 +10,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db.models import Count, Avg, Sum, Max, Min, Q
 from django.conf import settings
 
-from ulmg import models
+from badball import models
 
 
 class Command(BaseCommand):

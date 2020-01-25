@@ -7,18 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0045_auto_20181111_1153'),
+        ('badball', '0045_auto_20181111_1153'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='draftpick',
             name='original_team',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='original_team', to='ulmg.Team'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='original_team', to='badball.Team'),
         ),
         migrations.AlterField(
             model_name='draftpick',
             name='team',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='team', to='ulmg.Team'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='team', to='badball.Team'),
         ),
     ]

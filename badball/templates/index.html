@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load ulmg_tags %}
+{% load badball_tags %}
 
 
 {% block hero %}
@@ -9,7 +9,7 @@
             <h1 class="title">Sunday, June 23</h1>
             <h2 class="subtitle">LIVE DRAFT EXTRAVAGANZA</h2>
             <p><ul>
-                <li>Make your picks on the <strong><a href="https://ulmg.slack.com/messages/C4HA6AXSP/">#draftroom channel</a></strong> on our Slack</li>
+                <li>Make your picks on the <strong><a href="https://badball.slack.com/messages/C4HA6AXSP/">#draftroom channel</a></strong> on our Slack</li>
                 <li>See the <strong><a href="/draft/live/2019/midseason/open/">draft order for the Open draft</a></strong></li>
                 <li>See the <strong><a href="/draft/live/2019/midseason/aa/">draft order for the AA draft</a></strong></li>
             </ul>
@@ -29,7 +29,7 @@
             <div class="container">
                 <div id="navbarMenuHeroA" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item has-text-weight-bold" href="https://ulmg.slack.com/messages/C4HA6AXSP/">#draftroom in Slack</a>
+                        <a class="navbar-item has-text-weight-bold" href="https://badball.slack.com/messages/C4HA6AXSP/">#draftroom in Slack</a>
                         <a class="navbar-item has-text-weight-bold" href="/draft/live/2019/midseason/aa/">AA draft order</a>
                         <a class="navbar-item has-text-weight-bold" href="/draft/live/2019/midseason/open/">Open draft order</a>
                     </div>
@@ -123,7 +123,7 @@
                         <a href="/players/{{ p.id }}/" target="_blank">{{ p.name }}</a></span>
                     </td>
                     <td class="left">
-                        <a href="/admin/ulmg/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
+                        <a href="/admin/badball/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
                         {% if p.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.bref_url }}">BBR &Gt;</a>{% endif %}
                         {% if p.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.fg_url }}">FG &Gt;</a>{% endif %}
                         {% if p.mlbam_id %}<a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ p.mlbam_id }}">MLB &Gt;</a>{% endif %}
@@ -166,7 +166,7 @@
                         <a href="/players/{{ p.id }}/" target="_blank">{{ p.name }}</a></span>
                     </td>
                     <td class="left">
-                        <a href="/admin/ulmg/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
+                        <a href="/admin/badball/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
                         {% if p.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.bref_url }}">BBR &Gt;</a>{% endif %}
                         {% if p.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.fg_url }}">FG &Gt;</a>{% endif %}
                         {% if p.mlbam_id %}<a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ p.mlbam_id }}">MLB &Gt;</a>{% endif %}

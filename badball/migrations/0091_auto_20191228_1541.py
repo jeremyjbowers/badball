@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0090_auto_20191228_1535'),
+        ('badball', '0090_auto_20191228_1535'),
     ]
 
     operations = [

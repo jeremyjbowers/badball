@@ -17,7 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django.contrib.humanize',
     'django.contrib.staticfiles',
-    'ulmg',
+    'badball',
 ]
 
 MIDDLEWARE = [
@@ -30,12 +30,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ulmg.urls'
+ROOT_URLCONF = 'badball.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['ulmg/templates'],
+        'DIRS': ['badball/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -46,7 +46,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
             ],
             'libraries':{
-                'ulmg_tags': 'ulmg.templatetags.ulmg_tags',
+                'badball_tags': 'badball.templatetags.badball_tags',
             }
         },
     },
@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'config.dev.app.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'ulmg'),
+        'NAME': os.environ.get('DB_NAME', 'badball'),
         'USER': os.environ.get('DB_USER', None),
         'PASSWORD': os.environ.get('DB_PASSWORD', None),
         'HOST': os.environ.get('DB_HOST', None),

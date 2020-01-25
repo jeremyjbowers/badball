@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0042_player_steamer_predix'),
+        ('badball', '0042_player_steamer_predix'),
     ]
 
     operations = [
@@ -30,16 +30,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='tradereceipt',
             name='picks',
-            field=models.ManyToManyField(null=True, related_name='picks', to='ulmg.DraftPick'),
+            field=models.ManyToManyField(null=True, related_name='picks', to='badball.DraftPick'),
         ),
         migrations.AddField(
             model_name='tradereceipt',
             name='players',
-            field=models.ManyToManyField(null=True, related_name='players', to='ulmg.Player'),
+            field=models.ManyToManyField(null=True, related_name='players', to='badball.Player'),
         ),
         migrations.AddField(
             model_name='tradereceipt',
             name='team',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Team'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Team'),
         ),
     ]

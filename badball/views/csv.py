@@ -10,7 +10,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import ujson as json
 
-from ulmg import models, utils
+from badball import models, utils
 
 def all_csv(request):
     team_players = models.Player.objects.filter(is_owned=True).order_by('team', '-is_35man_roster', 'position', '-level_order', 'last_name', 'first_name').values(*settings.CSV_COLUMNS)

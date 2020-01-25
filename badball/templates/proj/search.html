@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load ulmg_tags %}
+{% load badball_tags %}
 
 {% block content %}
 
@@ -63,7 +63,7 @@
                             <a href="/players/{{ p.id }}/" target="_blank">{{ p.name }}</a></span>
                         </td>
                         <td class="left">
-                            <a href="/admin/ulmg/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
+                            <a href="/admin/badball/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
                             {% if p.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.bref_url }}">BBR &Gt;</a>{% endif %}
                             {% if p.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.fg_url }}">FG &Gt;</a>{% endif %}
                             {% if p.mlbam_id %}<a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ p.mlbam_id }}">MLB &Gt;</a>{% endif %}
@@ -104,7 +104,7 @@
                             <a href="/players/{{ p.id }}/" target="_blank">{{ p.name }}</a></span>
                         </td>
                         <td class="left">
-                            <a href="/admin/ulmg/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
+                            <a href="/admin/badball/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
                             {% if p.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.bref_url }}">BBR &Gt;</a>{% endif %}
                             {% if p.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.fg_url }}">FG &Gt;</a>{% endif %}
                             {% if p.mlbam_id %}<a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ p.mlbam_id }}">MLB &Gt;</a>{% endif %}

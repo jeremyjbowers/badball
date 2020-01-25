@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0049_draftpick_slug'),
+        ('badball', '0049_draftpick_slug'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('season', models.CharField(blank=True, max_length=255, null=True)),
                 ('summary', models.TextField(blank=True, null=True)),
                 ('trade_type', models.CharField(choices=[('players only', 'players only'), ('players and picks', 'players and picks')], max_length=255)),
-                ('teams', models.ManyToManyField(related_name='teams', to='ulmg.Team')),
+                ('teams', models.ManyToManyField(related_name='teams', to='badball.Team')),
             ],
             options={
                 'abstract': False,

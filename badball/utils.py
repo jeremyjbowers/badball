@@ -1,4 +1,4 @@
-from ulmg import models
+from badball import models
 from django.conf import settings
 
 

@@ -20,13 +20,13 @@
                         </span>
                         <h1 class="is-title is-size-2">
                             {{ pick.team }} 
-                            <span class="is-size-4" ><a href="/admin/ulmg/draftpick/{{ pick.id }}/change/">&#x270E;</a></span>
+                            <span class="is-size-4" ><a href="/admin/badball/draftpick/{{ pick.id }}/change/">&#x270E;</a></span>
                         </h1>
                         {% if pick.player or pick.player_name %}
                             <h1>
                                 {% if pick.player %}{{ pick.player.position }}{% endif %} {{ pick.player_name }}
                                 {% if not pick.player and pick.player_name %}
-                                    <span class="is-size-6" ><a href="/admin/ulmg/draftpick/{{ pick.id }}/change/">link player</a></span>
+                                    <span class="is-size-6" ><a href="/admin/badball/draftpick/{{ pick.id }}/change/">link player</a></span>
                                 {% else %}
                                     <a class="button is-danger undraft-action" data-pickid="{{ pick.id }}" data-playerid="{{ pick.player.id }}">x</a>
                                 {% endif %}

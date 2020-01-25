@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load ulmg_tags %}
+{% load badball_tags %}
 
 {% block content %}
 <div class="columns">
@@ -13,7 +13,7 @@
                         <h3>{% if player.team %}<a href="/teams/{{ player.team.abbreviation|lower }}/">{{ player.team }}</a>{% else %}Unowned{% endif %}</h3>
                         <h1 class="is-title is-level-1">{{ player.name }}, {{ player.position }}</h1>
                         <p>
-                            <strong><a href="/admin/ulmg/player/{{ player.id }}/change/">Edit player &#x270E;</a></strong>
+                            <strong><a href="/admin/badball/player/{{ player.id }}/change/">Edit player &#x270E;</a></strong>
                             {% if player.bref_url %}<br/><a class="has-text-weight-light" target="_blank" href="{{ player.bref_url }}">Baseball Reference &Gt;</a>{% endif %}
                             {% if player.fg_url %}<br/><a class="has-text-weight-light" target="_blank" href="{{ player.fg_url }}">Fangraphs &Gt;</a>{% endif %}
                             {% if player.mlbam_id %}<br/><a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ player.mlbam_id }}">MLB &Gt;</a>{% endif %}

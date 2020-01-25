@@ -1,4 +1,4 @@
-{% load ulmg_tags %}
+{% load badball_tags %}
 
 <td data-value="{{ p.ps_g|default_if_none:"-999" }}">{{ p.ps_g|default_if_none:"-" }}</td>
 <td data-value="{{ p.ps_gs|default_if_none:"-999" }}">{{ p.ps_gs|kill_leading_zero|default_if_none:"-" }}</td>

@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import include, path
 
-from ulmg.views import site as site_v
-from ulmg.views import adv as adv_v
-from ulmg.views import proj as proj_v
-from ulmg.views import api as api_v
-from ulmg.views import csv as csv_v
+from badball.views import site as site_v
+from badball.views import adv as adv_v
+from badball.views import proj as proj_v
+from badball.views import api as api_v
+from badball.views import csv as csv_v
 
 urlpatterns = [
     path('proj/', proj_v.index),

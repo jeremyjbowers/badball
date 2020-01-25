@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0061_trade_season'),
+        ('badball', '0061_trade_season'),
     ]
 
     operations = [
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('raar', models.DecimalField(decimal_places=1, max_digits=4)),
                 ('raal', models.DecimalField(decimal_places=1, max_digits=4)),
                 ('raat', models.DecimalField(decimal_places=1, max_digits=4)),
-                ('player', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Player')),
+                ('player', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Player')),
             ],
             options={
                 'abstract': False,

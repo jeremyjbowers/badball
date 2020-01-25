@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0012_remove_player_roster_conflict'),
+        ('badball', '0012_remove_player_roster_conflict'),
     ]
 
     operations = [

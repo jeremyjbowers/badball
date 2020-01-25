@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0075_player_js_prospect_rank'),
+        ('badball', '0075_player_js_prospect_rank'),
     ]
 
     operations = [
@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('fip', models.DecimalField(decimal_places=2, max_digits=4)),
                 ('xfip', models.DecimalField(decimal_places=2, max_digits=4)),
                 ('siera', models.DecimalField(decimal_places=2, max_digits=4)),
-                ('player', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Player')),
+                ('player', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Player')),
             ],
             options={
                 'abstract': False,

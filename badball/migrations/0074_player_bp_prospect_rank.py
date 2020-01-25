@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0073_player_interest_order'),
+        ('badball', '0073_player_interest_order'),
     ]
 
     operations = [

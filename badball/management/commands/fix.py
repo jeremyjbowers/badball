@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand, CommandError
 import requests
 
-from ulmg import models
+from badball import models
 
 
 class Command(BaseCommand):

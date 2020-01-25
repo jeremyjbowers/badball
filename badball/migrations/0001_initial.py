@@ -57,8 +57,8 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
                 ('note', models.TextField(blank=True, null=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ulmg.Owner')),
-                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ulmg.Player')),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='badball.Owner')),
+                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='badball.Player')),
             ],
             options={
                 'abstract': False,
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
                 ('year', models.IntegerField()),
                 ('rating', models.IntegerField()),
                 ('position', models.CharField(choices=[('P', 'Pitcher'), ('C', 'Catcher'), ('1B', 'First base'), ('2B', 'Second base'), ('3B', 'Third base'), ('SS', 'Shortstop'), ('LF', 'Left field'), ('CF', 'Center field'), ('RF', 'Right field')], max_length=2)),
-                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ulmg.Player')),
+                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='badball.Player')),
             ],
             options={
                 'abstract': False,
@@ -105,7 +105,7 @@ class Migration(migrations.Migration):
                 ('mascot', models.CharField(max_length=255)),
                 ('field', models.CharField(blank=True, max_length=255, null=True)),
                 ('abbreviation', models.CharField(max_length=3)),
-                ('owner', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Owner')),
+                ('owner', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Owner')),
             ],
             options={
                 'abstract': False,
@@ -114,16 +114,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='roster',
             name='team',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='ulmg.Team'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='badball.Team'),
         ),
         migrations.AddField(
             model_name='player',
             name='roster',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Roster'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Roster'),
         ),
         migrations.AddField(
             model_name='player',
             name='team',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='ulmg.Team'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='badball.Team'),
         ),
     ]

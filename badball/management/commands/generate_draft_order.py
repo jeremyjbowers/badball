@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from ulmg import models
+from badball import models
 
 DRAFT_MAPS = {
     'offseason': {

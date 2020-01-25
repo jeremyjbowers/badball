@@ -24,7 +24,7 @@ class BaseModel(models.Model):
 
 class Team(BaseModel):
     """
-    Canonical representation of a ULMG team.
+    Canonical representation of a BadBall team.
     """
     city = models.CharField(max_length=255)
     abbreviation = models.CharField(max_length=3)
@@ -122,7 +122,7 @@ class Player(BaseModel):
     mlb_dotcom_url = models.CharField(max_length=255, blank=True, null=True)
     fantrax_url = models.CharField(max_length=255, blank=True, null=True)
 
-    # ULMG-SPECIFIC
+    # BadBall-SPECIFIC
     team = models.ForeignKey(Team, on_delete=models.SET_NULL, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
     scouting_reports = ArrayField(models.TextField(blank=True, null=True), default=list)

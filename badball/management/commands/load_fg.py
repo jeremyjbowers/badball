@@ -10,7 +10,7 @@ from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 from nameparser import HumanName
 
-from ulmg import models
+from badball import models
 
 
 class Command(BaseCommand):

@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ulmg', '0048_draftpick_overall_pick_number'),
+        ('badball', '0048_draftpick_overall_pick_number'),
     ]
 
     operations = [

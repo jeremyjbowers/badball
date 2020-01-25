@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from ulmg.models import Team, Player, DraftPick, Trade, TradeReceipt, ScoutingReport
+from badball.models import Team, Player, DraftPick, Trade, TradeReceipt, ScoutingReport
 
-admin.site.site_title = "The ULMG"
-admin.site.site_header = "The ULMG: Admin"
-admin.site.index_title = "Administer The ULMG Website"
+admin.site.site_title = "The BadBall"
+admin.site.site_header = "The BadBall: Admin"
+admin.site.index_title = "Administer The BadBall Website"
 
 
 class ScoutingReportInline(admin.StackedInline):

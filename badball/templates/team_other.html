@@ -75,7 +75,7 @@
                             <td class="left">{% if p.player %}<a class="has-text-weight-semibold" href="/players/{{ p.player.id }}/">{{ p.player.name }}</a>{% elif p.player_name %}{{ p.player_name }}{% else %}-{% endif %}</td>
                             <td class="left">
                             {% if p.player %}
-                                <a href="/admin/ulmg/player/{{ p.player.id }}/change/">&#x270E; &Gt;</a>
+                                <a href="/admin/badball/player/{{ p.player.id }}/change/">&#x270E; &Gt;</a>
                                 {% if p.player.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.player.bref_url }}">BBR &Gt;</a>{% endif %}
                                 {% if p.player.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.player.fg_url }}">FG &Gt;</a>{% endif %}
                             {% endif %}

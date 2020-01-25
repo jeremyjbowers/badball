@@ -8,7 +8,7 @@ from django.db import connection
 from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 
-from ulmg import models
+from badball import models
 
 
 class Command(BaseCommand):
@@ -27,12 +27,12 @@ class Command(BaseCommand):
                 if c['key_fangraphs'] != "":
                     people_map[c['key_fangraphs']] = dict(c)
         
-        with open('data/ulmg/people_map.json', 'w') as writefile:
+        with open('data/badball/people_map.json', 'w') as writefile:
             writefile.write(json.dumps(people_map))
 
     def load_mlbam_ids(self):
         models.Player.objects.update(mlbam_id=None)
-        with open('data/ulmg/people_map.json', 'r') as readfile:
+        with open('data/badball/people_map.json', 'r') as readfile:
             people_map = json.loads(readfile.read())
 
             for p in models.Player.objects.filter(fg_id__isnull=False):

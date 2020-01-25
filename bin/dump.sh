@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /home/ubuntu/apps/ulmg; sudo su -c "source ~/.bashrc && workon ulmg && django-admin dumpdata ulmg > /tmp/ulmg.json" ubuntu
+cd /home/ubuntu/apps/badball; sudo su -c "source ~/.bashrc && workon badball && django-admin dumpdata badball > /tmp/badball.json" ubuntu

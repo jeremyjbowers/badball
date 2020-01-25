@@ -6,7 +6,7 @@ import uuid
 from fabric import api, operations, contrib
 from fabric.state import env
 
-env.project_name = "ulmg"
+env.project_name = "badball"
 env.user = "ubuntu"
 env.forward_agent = True
 env.branch = "master"
@@ -68,9 +68,9 @@ def mgmt(command):
 @api.task
 def get_data():
     randid = "%s" % uuid.uuid1()
-    api.run(work_string + "django-admin dumpdata ulmg > /tmp/ulmg-%s.json" % randid)
-    os.system('rm -rf data/fixtures/ulmg.json')
-    api.get(remote_path="/tmp/ulmg-%s.json" % randid, local_path="data/fixtures/ulmg.json")
+    api.run(work_string + "django-admin dumpdata badball > /tmp/badball-%s.json" % randid)
+    os.system('rm -rf data/fixtures/badball.json')
+    api.get(remote_path="/tmp/badball-%s.json" % randid, local_path="data/fixtures/badball.json")
 
 @api.task
 def reload():

@@ -10,7 +10,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import ujson as json
 
-from ulmg import models, utils
+from badball import models, utils
 
 @csrf_exempt
 def player_action(request, playerid, action):
