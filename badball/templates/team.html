@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% load ulmg_tags %}
+
+{% block prenav %}
+        {% if protect_tab %}{% include "includes/roster_status.html" %}{% endif %}
+{% endblock %}
+
+{% block content %}
+{% include 'includes/team_topper.html' %}
+
+<div class="tabs is-centered is-boxed is-large">
+    <ul>
+        <li class="is-active"><a href="#">Roster{% if num_owned %} ({{ num_owned }}){% endif %}</a></li>
+        <li><a href="/teams/{{ team.abbreviation|lower }}/other/">Trades & picks</a></li>
+    </ul>
+</div>
+
+<div class="columns">
+    <div class="column">
+        {% regroup hitters by position as position_players %}
+        {% for position in position_players %}
+        <h1 class="title is-3">{{ position.grouper }} ({{ position.list|length }})</h1>
+        <table class="table is-fullwidth is-hoverable" data-sortable>
+            <thead>
+                <tr>
+                    <th data-sortable-type="alpha">Name</th>
+                    <th></th>
+                    <th data-sortable-type="numeric">Age</th>
+                    <th data-sortable-type="alpha">Lvl</th>
+                    <th data-sortable-type="numeric">Card?</th>
+
+                    {% include "includes/hitter_stat_headers.html" %}
+
+                    {% include "includes/player_protect_headers.html" %}
+                </tr>
+            </thead>
+            <tbody>
+            {% for p in position.list %}
+            <tr class="
+            {% if p.ls_is_mlb == False and p.ls_plate_appearances > 0 %} minors{% endif %}
+            {% if p.ls_is_mlb == False %} minors{% endif %}
+            {% if p.ls_is_mlb == False and p.is_amateur == True %} amateur{% endif %}
+            ">
+                    <td data-value="{{ p.name }}" style="text-align: left!important;">
+                        <a class="has-text-weight-semibold" href="/players/{{ p.id }}/" target="_blank">{{ p.name }}</a>
+                    </td>
+                    <td class="left">
+                        <a href="/admin/ulmg/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
+                        {% if p.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.bref_url }}">BBR &Gt;</a>{% endif %}
+                        {% if p.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.fg_url }}">FG &Gt;</a>{% endif %}
+                        {% if p.mlbam_id %}<a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ p.mlbam_id }}">MLB &Gt;</a>{% endif %}
+                    </td>
+                    <td data-value="{{ p.age|default_if_none:"-999" }}">{{ p.age|default_if_none:"-" }}</td>
+                    <td data-value="{{ p.level|default_if_none:"Z" }}<">{{ p.level|default_if_none:"" }}</td>
+                    <td data-value="{% if p.is_carded %}1{% else %}0{% endif %}">{% if p.is_carded %}<span class="green">&checkmark;</span>{% else %}<span class="red">&cross;</span>{% endif %}</td>
+
+                    {% include "includes/hitter_stat_cells.html" %}
+
+                    {% include "includes/player_protect_actions.html" %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column">
+        <h1 class="title is-3">P ({{ pitchers|length }})</h1>
+        <table class="table is-fullwidth" data-sortable>
+            <thead>
+                <tr>
+                    <th data-sortable-type="alpha">Name</th>
+                    <th></th>
+                    <th data-sortable-type="numeric">Age</th>
+                    <th data-sortable-type="alpha">Lvl</th>
+                    <th data-sortable-type="numeric">Card?</th>
+
+                    {% include "includes/pitcher_stat_headers.html" %}
+                    {% include "includes/player_protect_headers.html" %}
+                </tr>
+            </thead>
+            <tbody>
+            {% for p in pitchers %}
+            <tr class="
+            {% if p.ls_is_mlb == False and p.ls_ip > 0 %} minors{% endif %}
+            {% if p.ls_is_mlb == False and p.is_amateur == True %} amateur{% endif %}
+            {% if p.ls_is_mlb == False %} minors{% endif %}
+            ">
+                    <td data-value="{{ p.name }}" style="text-align: left!important;"><span class="has-text-weight-semibold" data-value="{{ p.name }}">
+                            <a href="/players/{{ p.id }}/" target="_blank">{{ p.name }}</a></span>
+                    </td>
+                    <td class="left">
+                        <a href="/admin/ulmg/player/{{ p.id }}/change/">&#x270E; &Gt;</a>
+                        {% if p.bref_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.bref_url }}">BBR &Gt;</a>{% endif %}
+                        {% if p.fg_url %}<a class="has-text-weight-light" target="_blank" href="{{ p.fg_url }}">FG &Gt;</a>{% endif %}
+                        {% if p.mlbam_id %}<a class="has-text-weight-light" target="_blank" href="https://baseballsavant.mlb.com/savant-player/{{ p.mlbam_id }}">MLB &Gt;</a>{% endif %}
+                    </td>
+                    <td data-value="{{ p.age|default_if_none:"-999" }}">{{ p.age|default_if_none:"-" }}</td>
+                    <td data-value="{{ p.level|default_if_none:"Z" }}<">{{ p.level|default_if_none:"" }}</td>
+                    <td data-value="{% if p.is_carded %}1{% else %}0{% endif %}">{% if p.is_carded %}<span class="green">&checkmark;</span>{% else %}<span class="red">&cross;</span>{% endif %}</td>
+
+                    {% include "includes/pitcher_stat_cells.html" %}
+
+                    {% include "includes/player_protect_actions.html" %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% if protect_tab or roster_tab %}
+<div class="modal" id="player-drop-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content"></div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+{% endif %}
+{% endblock %}
+        
+{% block extrascript %}
+{% if protect_tab or roster_tab%}<script type="text/javascript">
+$(function(){
+    var player_click_handler = function(el) {
+
+        el.preventDefault();
+        $el = $(this);
+
+        var playerid = $el.attr('data-playerid')
+        var action = $el.attr('data-action')
+
+        console.log(playerid, action);
+
+        $.ajax({
+            type: "POST",
+            url: '/api/v1/player/' + playerid + '/' +  action + '/',
+            success: function(response){
+                window.location.reload();
+            }
+        });
+    }
+
+    var player_drop_handler = function(el) {
+        el.preventDefault();
+        $el = $(this);
+
+        var playerid = $el.attr('data-playerid');
+        var playername = $el.attr('data-playername');
+        $('#player-drop-modal div.modal-content').html('<div class="box"><div class="content"><p class="subtitle">Are you sure you want to <strong>permanently drop ' + playername + '?</strong></p><p><a class="button is-danger is-large player-action" data-action="drop" data-playerid=' + playerid + '>Drop ' + playername + '</a>&nbsp;&nbsp;&nbsp;<a class="cancel button is-info is-large">Cancel</a></p></div></div>');
+        $('#player-drop-modal').addClass('is-active');
+    }
+
+    var modal_close_handler = function(el){
+        el.preventDefault();
+        $el = $(this);
+
+        $('#player-drop-modal').removeClass('is-active');
+        $('#player-drop-modal div.modal-content').html('');
+    }
+
+    $('body').on('click', 'a.player-action', player_click_handler);
+    $('body').on('click', 'a.player-drop', player_drop_handler);
+    $('body').on('click', '.modal-close, .modal-background, a.cancel', modal_close_handler);
+});
+</script>{% endif %}
+{% endblock %}
